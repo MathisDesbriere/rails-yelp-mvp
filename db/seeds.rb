@@ -17,9 +17,11 @@ Review.destroy_all
     category: ["chinese", "italian", "japanese", "french", "belgian"].sample
   )
 
-  review = Review.create(
+  3.times do
+    Review.create(
     rating: (0..5).to_a.sample,
     content: Faker::Restaurant.review,
     restaurant: restaurant
   )
+  end
 end

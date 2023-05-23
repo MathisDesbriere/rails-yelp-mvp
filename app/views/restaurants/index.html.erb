@@ -1,0 +1,15 @@
+<h1>Restaurants</h1>
+<p><%= link_to "Add a new restaurant", new_restaurant_path, class: "btn btn-primary" %></p>
+
+<ul class="list-group">
+  <% @restaurants.each do |restaurant| %>
+    <li class="list-group-item">
+      <%= link_to restaurant.name, restaurant_path(restaurant) %>
+      <ul>
+        <% restaurant.reviews.each do |review| %>
+          <li><b><%= review.rating %> /5 </b>: <%= review.content %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
